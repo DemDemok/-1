@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Животные</title>
+<style>
+  body {
+    background-image: url('background.jpg'); /* лесная текстура */
+    background-size: cover;
+    font-family: Verdana, sans-serif;
+    color: #222;
+    margin: 0;
+    padding: 20px;
+    transition: all 0.3s;
+  }
+
+  h1 {
+    font-family: 'Georgia', serif;
+    text-align: center;
+    color: #2a3d24;
+    text-shadow: 1px 1px 2px #fff;
+  }
+
+  p {
+    max-width: 700px;
+    margin: 10px auto;
+    line-height: 1.6;
+  }
+
+  img.main-image {
+    display: block;
+    margin: 10px auto;
+    max-width: 600px;
+    border-radius: 12px;
+    border: 2px solid #fff;
+    box-shadow: 0 0 8px rgba(0,0,0,0.4);
+  }
+
+  .gallery {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+
+  .gallery img {
+    width: 150px;
+    height: 100px;
+    border-radius: 12px;
+    border: 2px solid #fff;
+    box-shadow: 0 0 6px rgba(0,0,0,0.3);
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+
+  .gallery img:hover {
+    transform: scale(1.05);
+  }
+
+  a.back {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: #225522;
+    cursor: pointer;
+  }
+
+</style>
+</head>
+<body>
+
+<!-- Главная страница -->
+<div id="page-home">
+  <h1>Мир животных</h1>
+  <p>Добро пожаловать на сайт о животных. Нажмите на изображение, чтобы узнать больше о каждом из них.</p>
+  <div class="gallery">
+    <img src="https://static.mk.ru/upload/entities/2024/10/16/19/articles/facebookPicture/fd/ad/9a/18/83af4fc6dd31592ae4173a2c31b92cea.jpg" alt="Лев" title="Лев" onclick="showPage('lion')">
+    <img src="https://avatars.mds.yandex.net/i?id=9b14031232fda56238709a36d8cbf16e_l-5289344-images-thumbs&n=13" alt="Тигр" title="Тигр" onclick="showPage('tiger')">
+    <img src="https://i.ytimg.com/vi/W63kH_IzaiI/maxresdefault.jpg" alt="Слон" title="Слон" onclick="showPage('elephant')">
+    <img src="https://avatars.mds.yandex.net/i?id=623cbd29397ec124290320387fd68de8_l-9657345-images-thumbs&n=13" alt="Панда" title="Панда" onclick="showPage('panda')">
+  </div>
+</div>
+
+<!-- Страница Льва -->
+<div id="page-lion" style="display:none;">
+  <h1>Лев — Царь зверей</h1>
+  <img src="https://static.mk.ru/upload/entities/2024/10/16/19/articles/facebookPicture/fd/ad/9a/18/83af4fc6dd31592ae4173a2c31b92cea.jpg" alt="Лев" class="main-image">
+  <p>Лев — один из самых известных хищников на планете. Его грива и рёв делают его символом силы и власти.</p>
+  <p>Львы живут в прайдах, где каждый член выполняет важную роль. Они требуют много пищи и территорий для охоты.</p>
+  <a class="back" onclick="showPage('home')">← Вернуться на главную</a>
+</div>
+
+<!-- Страница Тигра -->
+<div id="page-tiger" style="display:none;">
+  <h1>Тигр — Полосатый охотник</h1>
+  <img src="https://avatars.mds.yandex.net/i?id=9b14031232fda56238709a36d8cbf16e_l-5289344-images-thumbs&n=13" alt="Тигр" class="main-image">
+  <p>Тигр — самый крупный представитель семейства кошачьих. У него мощные лапы и отличное зрение ночью.</p>
+  <p>Тигры — одиночные хищники, находящиеся под угрозой исчезновения из-за браконьерства и потери лесов.</p>
+  <a class="back" onclick="showPage('home')">← Вернуться на главную</a>
+</div>
+
+<!-- Страница Слона -->
+<div id="page-elephant" style="display:none;">
+  <h1>Слон — Мудрый великан</h1>
+  <img src="https://i.ytimg.com/vi/W63kH_IzaiI/maxresdefault.jpg" alt="Слон" class="main-image">
+  <p>Слон — крупное и умное животное с отличной памятью. Он живёт в стадах и постоянно заботится о потомстве.</p>
+  <p>Слоны помогают экосистеме, расчищая лесные территории и распространяя семена растений в природе.</p>
+  <a class="back" onclick="showPage('home')">← Вернуться на главную</a>
+</div>
+
+<!-- Страница Панды -->
+<div id="page-panda" style="display:none;">
+  <h1>Панда — Символ доброты</h1>
+  <img src="https://avatars.mds.yandex.net/i?id=623cbd29397ec124290320387fd68de8_l-9657345-images-thumbs&n=13" alt="Панда" class="main-image">
+  <p>Большая панда — редкий вид медведей, питающийся в основном бамбуком. У неё миролюбивый характер.</p>
+  <p>Численность панд увеличивается благодаря программам защиты природы. Они стали символом экологии.</p>
+  <a class="back" onclick="showPage('home')">← Вернуться на главную</a>
+</div>
+<script>
+function showPage(page) {
+  // Скрываем все страницы
+  document.getElementById('page-home').style.display = 'none';
+  document.getElementById('page-lion').style.display = 'none';
+  document.getElementById('page-tiger').style.display = 'none';
+  document.getElementById('page-elephant').style.display = 'none';
+  document.getElementById('page-panda').style.display = 'none';
+
+  // Показываем выбранную
+  document.getElementById('page-' + page).style.display = 'block';
+}
+</script>
+
+</body>
+</html>
